@@ -14,8 +14,8 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-const projectStorage = firebase.storage();
-const projectFirestore = firebase.firestore();
+const projectStorage = firebase.storage(); // storage is to store images
+const projectFirestore = firebase.firestore(); // database -- firestore is an realtime database from firebase
 const timestamp = firebase.firestore.FieldValue.serverTimestamp;
 
 export { projectStorage, projectFirestore, timestamp };
