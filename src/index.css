@@ -10,7 +10,8 @@
 body {
   font-family: "Noto Serif";
   color: var(--secondary);
-  background-color: #626262;
+  background-color: #b8c6db;
+  /* background-color: #626262; */
 }
 
 * {
