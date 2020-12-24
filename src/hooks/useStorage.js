@@ -11,6 +11,8 @@ const useStorage = (file) => {
     // references
     const storageRef = projectStorage.ref(file.name);
     const collectionRef = projectFirestore.collection('images');
+    const name = file.name;
+    console.log("name in use storage hpok   ",name)
     
     storageRef.put(file).on('state_changed', (snap) => {
       let percentage = (snap.bytesTransferred / snap.totalBytes) * 100;
@@ -20,10 +22,12 @@ const useStorage = (file) => {
     }, async () => {
       const url = await storageRef.getDownloadURL();
       const createdAt = timestamp();
-      await collectionRef.add({ url, createdAt });
+      await collectionRef.add({ url, createdAt, name});
       setUrl(url);
     });
   }, [file]);
+
+  
 
   return { progress, url, error };
 }

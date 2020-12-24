@@ -1,16 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Title from './components/Title.js';
 import UploadForm from './components/uploadForm/UploadForm.js';
+import ImageDisplay from './components/imageDisplay/ImageDisplay.js';
+import Modal from './components/modal/Model.js'
 
 import './App.css';
-import ImageDisplay from './components/imageDisplay/ImageDisplay.js';
 
 function App() {
+  const [selectedImg, setSelectedImg] = useState(null);
+
   return (
     <div className="App">
       <Title />
       <UploadForm />
-      <ImageDisplay />
+      <ImageDisplay setSelectedImg={setSelectedImg} />
+      { selectedImg && (
+        <Modal selectedImg={selectedImg} setSelectedImg={setSelectedImg} />
+      )}
     </div>
   );
 }
