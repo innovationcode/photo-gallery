@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
-import { projectStorage, projectFirestore, timestamp } from '../firebase/config';
+import { projectStorage, projectFirestore, timestamp } from '../firebase/firebase.js';
 
 const useStorage = (file) => {
+  //console.log("file in useStorage.....", file)
   const [progress, setProgress] = useState(0);
   const [error, setError] = useState(null);
   const [url, setUrl] = useState(null);
