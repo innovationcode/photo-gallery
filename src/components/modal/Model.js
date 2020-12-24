@@ -3,8 +3,8 @@ import { motion } from 'framer-motion';
 
 import './Model.css'
 
-const Modal = ({ setSelectedImg, selectedImg }) => {
-      console.log("selectedImg  :  ", selectedImg)
+const Modal = ({ setSelectedImg, image, name }) => {
+      console.log("selectedImg  :  ", name)
 
   const handleClick = (e) => {
     if (e.target.classList.contains('backdrop')) {
@@ -17,12 +17,12 @@ const Modal = ({ setSelectedImg, selectedImg }) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
     >
-      <motion.img src={selectedImg} alt="enlarged pic" 
+      <motion.img src={image} alt="enlarged pic" 
         initial={{ y: "-100vh" }}
         animate={{ y: 0 }}
       />
 
-      <h2>Image name </h2>
+      <h2>{name} </h2>
     </motion.div>
   )
 }

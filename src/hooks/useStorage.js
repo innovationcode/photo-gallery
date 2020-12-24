@@ -11,7 +11,9 @@ const useStorage = (file) => {
     // references
     const storageRef = projectStorage.ref(file.name);
     const collectionRef = projectFirestore.collection('images');
-    const name = file.name;
+    let name = file.name;
+    name = name.split(".")[0]
+    name = name.charAt(0).toUpperCase()+ name.slice(1);
     console.log("name in use storage hpok   ",name)
     
     storageRef.put(file).on('state_changed', (snap) => {
@@ -27,7 +29,6 @@ const useStorage = (file) => {
     });
   }, [file]);
 
-  
 
   return { progress, url, error };
 }

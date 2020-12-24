@@ -13,7 +13,7 @@ const ImageDisplay = ({ setSelectedImg }) => {
                         <motion.div className="img-wrap" key={doc.id} 
                               layout
                               whileHover={{ opacity: 1 }}
-                              onClick={() => setSelectedImg(doc.url, doc.name)}
+                              onClick={() => setSelectedImg({url: doc.url, name: doc.name})}
                         >
                         <motion.img src={doc.url} alt="uploaded pic"
                               initial={{ opacity: 0 }}

@@ -7,15 +7,16 @@ import Modal from './components/modal/Model.js'
 import './App.css';
 
 function App() {
-  const [selectedImg, setSelectedImg] = useState(null);
+  const [selectedImg, setSelectedImg] = useState({url: '', name: ''});
+  console.log("APP.js  : ", selectedImg)
 
   return (
     <div className="App">
       <Title />
       <UploadForm />
-      <ImageDisplay setSelectedImg={setSelectedImg} />
+      <ImageDisplay setSelectedImg={setSelectedImg}/>
       { selectedImg && (
-        <Modal selectedImg={selectedImg} setSelectedImg={setSelectedImg} />
+        <Modal image={selectedImg.url} name={selectedImg.name} setSelectedImg={setSelectedImg} />
       )}
     </div>
   );
