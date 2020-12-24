@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap");
 
 :root {
-  --primary: #d89a96;
+  --primary: #c58f8b;
   --secondary: #4e4e4e;
   --error: #ff4a4a;
 }
@@ -10,7 +10,7 @@
 body {
   font-family: "Noto Serif";
   color: var(--secondary);
-  background-color: #4e4e4e;
+  background-color: #626262;
 }
 
 * {
