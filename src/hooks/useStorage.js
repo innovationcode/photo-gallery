@@ -6,11 +6,12 @@ const useStorage = (file) => {
   const [progress, setProgress] = useState(0);
   const [error, setError] = useState(null);
   const [url, setUrl] = useState(null);
-
+  
   useEffect(() => {
     // references
     const storageRef = projectStorage.ref(file.name);
     const collectionRef = projectFirestore.collection('images');
+    let likes = 0
     let name = file.name;
     name = name.split(".")[0]
     name = name.charAt(0).toUpperCase()+ name.slice(1);
@@ -24,7 +25,7 @@ const useStorage = (file) => {
     }, async () => {
       const url = await storageRef.getDownloadURL();
       const createdAt = timestamp();
-      await collectionRef.add({ url, createdAt, name});
+      await collectionRef.add({ url, createdAt, name, likes});
       setUrl(url);
     });
   }, [file]);

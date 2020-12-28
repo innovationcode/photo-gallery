@@ -7,7 +7,7 @@ import Modal from './components/modal/Model.js'
 import './App.css';
 
 function App() {
-  const [selectedImg, setSelectedImg] = useState({url: '', name: ''});
+  const [selectedImg, setSelectedImg] = useState({url: null, name: null});
   console.log("APP.js  : ", selectedImg)
 
   return (
