@@ -6,7 +6,8 @@ const useStorage = (file) => {
   const [progress, setProgress] = useState(0);
   const [error, setError] = useState(null);
   const [url, setUrl] = useState(null);
-  
+
+
   useEffect(() => {
     // references
     const storageRef = projectStorage.ref(file.name);
@@ -15,7 +16,7 @@ const useStorage = (file) => {
     let name = file.name;
     name = name.split(".")[0]
     name = name.charAt(0).toUpperCase()+ name.slice(1);
-    console.log("name in use storage hpok   ",name)
+    console.log("name to store in db   ",name)
     
     storageRef.put(file).on('state_changed', (snap) => {
       let percentage = (snap.bytesTransferred / snap.totalBytes) * 100;

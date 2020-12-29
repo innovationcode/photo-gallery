@@ -15,9 +15,9 @@ function App() {
       <Title />
       <UploadForm />
       <ImageDisplay setSelectedImg={setSelectedImg}/>
-      { selectedImg && (
+      { selectedImg ? (
         <Modal image={selectedImg.url} name={selectedImg.name} setSelectedImg={setSelectedImg} />
-      )}
+      ): null}
     </div>
   );
 }
