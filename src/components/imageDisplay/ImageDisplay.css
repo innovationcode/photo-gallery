@@ -29,13 +29,20 @@
 
 @media only screen and (max-width: 600px) {
   .likes {
-    margin-top: 27.4%;
+    margin-top: 50.5%;
   }
+  .likes .likes-icon {
+    font-size: 30px;
+  }
+  .likes p {
+    font-size: 15px;
+  }
+
   .img-wrap {
     padding: 30% 0;
     height: 90px;
   }
   .img-wrap img {
-    min-height: 80%;
+    min-height: 75%;
   }
 }

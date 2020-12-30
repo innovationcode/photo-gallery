@@ -25,9 +25,14 @@ label {
 }
 
 @media only screen and (max-width: 600px) {
+  .output {
+    max-height: 30px;
+  }
+
   label {
-    width: 300px;
-    height: 35px;
+    width: 230px;
+    height: 30px;
+    padding-bottom: 8px;
     font-size: 18px;
   }
 }
