@@ -12,8 +12,9 @@
   position: relative;
   opacity: 0.8;
   background-color: #ebc8c5;
-  border-radius: 5px;
-  box-shadow: 5px 5px 5px 5px grey;
+  border-radius: 8px;
+  box-shadow: 0px 18px 53px 0px rgba(0, 0, 0, 0.3);
+  /* box-shadow: 5px 5px 5px 5px grey; */
 }
 
 .img-wrap img {
@@ -23,4 +24,18 @@
   top: 0;
   left: 0;
   cursor: pointer;
+  border: "2px solid gray";
+}
+
+@media only screen and (max-width: 600px) {
+  .likes {
+    margin-top: 27.4%;
+  }
+  .img-wrap {
+    padding: 30% 0;
+    height: 90px;
+  }
+  .img-wrap img {
+    min-height: 80%;
+  }
 }

@@ -6,6 +6,7 @@ import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import './ImageDisplay.css';
 import { projectFirestore } from '../../firebase/firebase.js';
 
+
 const ImageDisplay = ({ setSelectedImg }) => {
       const { docs } = useFirestore('images');
       // console.log("DOCS... : ", docs)
@@ -35,20 +36,18 @@ const ImageDisplay = ({ setSelectedImg }) => {
                               onClick={() => setSelectedImg({url: doc.url, name: doc.name})}
 
                         />
-                        <div style = {{display: 'flex', 
-                                       justifyContent:'flex-start',
-                                       position: 'relative', 
-                                       zIndex: '1', 
-                                       marginLeft: '20px', 
-                                       marginTop:'340px'}}>
-                        <FavoriteBorderIcon style={{ fontSize: 40, 
-                                                     cursor:'pointer' }}
-                                            onClick={() => {
-                                                     handleLikes(doc.likes, doc.id  )
-                                                      
-                                                    }}
+                        <div className = "likes" style ={{display:'flex', paddingTop :'52.5%', paddingLeft:'2%'}}>  
+                              <FavoriteBorderIcon className = "likes-icon"
+                                                  style={{ fontSize: 40, cursor:'pointer' }}
+                                                  onClick={() => {handleLikes(doc.likes, doc.id)}}
+                                                  
                         />
-                        <p style = {{fontSize: '20px', padding :'8px'}}>{doc.likes}</p>
+                        
+                        {/* <h3 onClick={() => {
+                                          handleLikes(doc.likes, doc.id)
+                                          }}
+                            style = {{cursor:'pointer'}}>Likes</h3> */}
+                        <p style = {{fontSize: '22px', padding :'10px', paddingTop:'5px'}}>{doc.likes}</p>
                         </div>
 
                         </motion.div>
