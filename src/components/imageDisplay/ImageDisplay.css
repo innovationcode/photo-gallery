@@ -4,6 +4,32 @@
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 40px;
 }
+
+.delete-image {
+  position: absolute;
+  top: 1%;
+  right: 1%;
+  font-size: 18px;
+  z-index: 999;
+  padding: 2px 7px;
+  font-weight: 900;
+  background: #ebc8c5;
+  cursor: default;
+}
+
+.delete {
+  visibility: hidden;
+  font-size: 15px;
+  position: absolute;
+  top: 110%;
+  right: 0.002%;
+  z-index: 1;
+}
+
+.delete-image:hover .delete {
+  visibility: visible;
+}
+
 .img-wrap {
   overflow: hidden;
   height: 70px;
@@ -33,18 +59,11 @@
 }
 
 .test .social-share-wrap {
-  /* border: 1px solid orangered; */
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24);
-  /* display: none; */
   visibility: hidden;
-
   position: absolute;
-  /* top: 2%; */
   right: 6%;
   bottom: 1.22%;
-  /* width: 192px; */
-  /* left: -130px; */
-  /* bottom: -8px; */
   background-color: rgb(172, 168, 168);
   padding: 7px 5px 2px 6px; /*top right bottom left*/
   border-radius: 9px;

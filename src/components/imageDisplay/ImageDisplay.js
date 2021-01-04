@@ -16,12 +16,15 @@ const ImageDisplay = ({ setSelectedImg }) => {
       // console.log("DOCS... : ", docs)
 
       const handleLikes = async (likes,  id ) => {
-             
             likes = ++likes;
             const objectToUpdate = projectFirestore.collection('images').doc(id);
             await  objectToUpdate.update( {likes:likes} ) 
-          //  await projectFirestore.collection('images').where('name' , '==' ,'Mango').onSnapshot(snap => { console.log(snap.doc)})//.where('name', '==', 'Banana').get().then((snapshot) => console.log(snapshot.doc))
-            // console.log(imageref)
+          //await projectFirestore.collection('images').where('name' , '==' ,'Mango').onSnapshot(snap => { console.log(snap.doc)})//.where('name', '==', 'Banana').get().then((snapshot) => console.log(snapshot.doc))
+      }
+
+      const handleDelete = async (id ) => {
+            const objectToUpdate = projectFirestore.collection('images').doc(id);
+            await  objectToUpdate.delete({id:id}) 
       }
 
       return (
@@ -32,6 +35,10 @@ const ImageDisplay = ({ setSelectedImg }) => {
                               layout
                               whileHover={{ opacity: 1 }}
                         >
+                              <div className = "delete-image"
+                                   onClick = {() => {handleDelete(doc.id)}}>X
+                                    <div className = "delete">Delete</div>
+                              </div>
                         
                         <motion.img src={doc.url} key={doc.id}  alt="uploaded pic"
                               initial={{ opacity: 0 }}
@@ -49,6 +56,7 @@ const ImageDisplay = ({ setSelectedImg }) => {
                                     />
                                     <p style = {{fontSize: '22px', padding :'10px', paddingTop:'5px'}}>{doc.likes}</p>
                               </div>
+
                               <div className = "test">
                                     <ShareIcon className = "likes-icon"
                                                style={{ fontSize: 30, padding :'7px 16px', color:'purple' }}
