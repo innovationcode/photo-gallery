@@ -2,6 +2,10 @@ import React from 'react'
 import useFirestore from '../../hooks/useFirestore.js';
 import { motion } from 'framer-motion';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+import ShareIcon from '@material-ui/icons/Share';
+import FacebookIcon from '@material-ui/icons/Facebook';
+import TwitterIcon from '@material-ui/icons/Twitter';
+import LinkIcon from '@material-ui/icons/Link';
 
 import './ImageDisplay.css';
 import { projectFirestore } from '../../firebase/firebase.js';
@@ -36,18 +40,40 @@ const ImageDisplay = ({ setSelectedImg }) => {
                               onClick={() => setSelectedImg({url: doc.url, name: doc.name})}
 
                         />
-                        <div className = "likes" style ={{display:'flex', paddingTop :'52.5%', paddingLeft:'2%'}}>  
-                              <FavoriteBorderIcon className = "likes-icon"
-                                                  style={{ fontSize: 40, cursor:'pointer' }}
-                                                  onClick={() => {handleLikes(doc.likes, doc.id)}}
-                                                  
-                        />
-                        
-                        {/* <h3 onClick={() => {
-                                          handleLikes(doc.likes, doc.id)
-                                          }}
-                            style = {{cursor:'pointer'}}>Likes</h3> */}
-                        <p style = {{fontSize: '22px', padding :'10px', paddingTop:'5px'}}>{doc.likes}</p>
+                        <div className = "likes-share" style ={{paddingTop :'52.5%', paddingLeft:'2%'}}>  
+                              <div style = {{display:'flex', justifyContent:'flex-start'}}>
+                                    <FavoriteBorderIcon className = "likes-icon"
+                                                      style={{ fontSize: 40, cursor:'pointer' }}
+                                                      onClick={() => {handleLikes(doc.likes, doc.id)}}
+                                                      
+                                    />
+                                    <p style = {{fontSize: '22px', padding :'10px', paddingTop:'5px'}}>{doc.likes}</p>
+                              </div>
+                              <div className = "test">
+                                    <ShareIcon className = "likes-icon"
+                                               style={{ fontSize: 30, padding :'7px 16px', color:'purple' }}
+                                    />
+                                    <div className = "social-share-wrap" >
+                                          <div className = "share-wrap">
+                                                <div style = {{padding:' 0px 10px'}}>
+                                                      <FacebookIcon style={{ fontSize: 40, cursor:'pointer', color :'#3b5998' }}
+                                                                    onClick={() => alert("FACEBOOK  ...")}
+                                                      />
+                                                </div>
+                                                <div style = {{padding:' 0px 10px'}}>
+                                                      <TwitterIcon style={{ fontSize: 40, cursor:'pointer', color: '#1da1f2'}}
+                                                                   onClick={() => alert("TWEET...")} 
+                                                      />
+                                                </div>
+                                                <div style = {{padding:' 0px 10px'}}>
+                                                      <LinkIcon style={{ fontSize: 40, cursor:'pointer' }}
+                                                                onClick={() => alert("SHARE LINK...")}
+                                                      />
+                                                </div>
+                                          </div>
+                                    </div>
+                              </div>
+
                         </div>
 
                         </motion.div>
