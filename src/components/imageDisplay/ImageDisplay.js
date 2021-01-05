@@ -23,8 +23,27 @@ const ImageDisplay = ({ setSelectedImg }) => {
       }
 
       const handleDelete = async (id ) => {
-            const objectToUpdate = projectFirestore.collection('images').doc(id);
-            await  objectToUpdate.delete({id:id}) 
+            const delete_confirm = window.confirm("\n\tSure, You want to delete?\t")
+            if(delete_confirm) {
+                  const objectToUpdate = projectFirestore.collection('images').doc(id);
+                  await  objectToUpdate.delete({id:id}) 
+            }
+      }
+
+      const facebook_click = (url, name, width, height) => {
+            const u = url      
+            const t = name;
+
+            var leftPosition, topPosition;
+    //Allow for borders.
+    leftPosition = (window.screen.width / 2) - ((width / 2) + 10);
+    //Allow for title and status bars.
+    topPosition = (window.screen.height / 2) - ((height / 2) + 50);
+    var windowFeatures = "status=no,height=" + height + ",width=" + width + ",resizable=yes,left=" + leftPosition + ",top=" + topPosition + ",screenX=" + leftPosition + ",screenY=" + topPosition + ",toolbar=no,menubar=no,scrollbars=no,location=no,directories=no";
+
+
+            window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(u)+'&t='+encodeURIComponent(t),'sharer',windowFeatures);
+            return false;
       }
 
       return (
@@ -65,7 +84,7 @@ const ImageDisplay = ({ setSelectedImg }) => {
                                           <div className = "share-wrap">
                                                 <div style = {{padding:' 0px 10px'}}>
                                                       <FacebookIcon style={{ fontSize: 40, cursor:'pointer', color :'#3b5998' }}
-                                                                    onClick={() => alert("FACEBOOK  ...")}
+                                                                    onClick={() => facebook_click(doc.url, doc.name, 500, 400)}
                                                       />
                                                 </div>
                                                 <div style = {{padding:' 0px 10px'}}>

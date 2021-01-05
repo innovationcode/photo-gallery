@@ -15,6 +15,7 @@
   font-weight: 900;
   background: #ebc8c5;
   cursor: default;
+  border-radius: 10%;
 }
 
 .delete {
@@ -24,6 +25,7 @@
   top: 110%;
   right: 0.002%;
   z-index: 1;
+  color: rgb(195, 217, 7);
 }
 
 .delete-image:hover .delete {
@@ -77,6 +79,12 @@
 
 .test:hover .social-share-wrap {
   visibility: visible;
+}
+#window.confirm {
+  background-color: aquamarine;
+}
+#alertBox {
+  background-color: aqua;
 }
 
 @media only screen and (max-width: 600px) {
