@@ -58,9 +58,8 @@ const ImageDisplay = ({ setSelectedImg }) => {
       }
 
       const copy_link = (url) => {
-            if(url) { 
-                  url.select();
-                  document.execCommand("copy");
+            if(navigator.clipboard.writeText(url)) {
+                  alert(`${url}\n\nAbove image link copied to clipboard`)
             }
       }
 
