@@ -23,7 +23,7 @@ const ImageDisplay = ({ setSelectedImg }) => {
       }
 
       const handleDelete = async (id ) => {
-            const delete_confirm = window.confirm("\n\tSure, You want to delete?\t")
+            const delete_confirm = window.confirm("Sure, You want to delete?")
             if(delete_confirm) {
                   const objectToUpdate = projectFirestore.collection('images').doc(id);
                   await  objectToUpdate.delete({id:id}) 
@@ -35,15 +35,33 @@ const ImageDisplay = ({ setSelectedImg }) => {
             const t = name;
 
             var leftPosition, topPosition;
-    //Allow for borders.
-    leftPosition = (window.screen.width / 2) - ((width / 2) + 10);
-    //Allow for title and status bars.
-    topPosition = (window.screen.height / 2) - ((height / 2) + 50);
-    var windowFeatures = "status=no,height=" + height + ",width=" + width + ",resizable=yes,left=" + leftPosition + ",top=" + topPosition + ",screenX=" + leftPosition + ",screenY=" + topPosition + ",toolbar=no,menubar=no,scrollbars=no,location=no,directories=no";
-
-
+            //Allow for borders.
+            leftPosition = (window.screen.width / 2) - ((width / 2) + 10);
+            //Allow for title and status bars.
+            topPosition = (window.screen.height / 2) - ((height / 2) + 50);
+            const windowFeatures = "status=no,height=" + height + ",width=" + width + ",resizable=yes,left=" + leftPosition + ",top=" + topPosition + ",screenX=" + leftPosition + ",screenY=" + topPosition + ",toolbar=no,menubar=no,scrollbars=no,location=no,directories=no";
             window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(u)+'&t='+encodeURIComponent(t),'sharer',windowFeatures);
             return false;
+      }
+
+      const twitter_click = (url, name, width, height) => {
+            const u = url      
+            const t = name;
+            var leftPosition, topPosition;
+            //Allow for borders.
+            leftPosition = (window.screen.width / 2) - ((width / 2) + 10);
+            //Allow for title and status bars.
+            topPosition = (window.screen.height / 2) - ((height / 2) + 50);
+            const windowFeatures = "status=no,height=" + height + ",width=" + width + ",resizable=yes,left=" + leftPosition + ",top=" + topPosition + ",screenX=" + leftPosition + ",screenY=" + topPosition + ",toolbar=no,menubar=no,scrollbars=no,location=no,directories=no";
+            window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(u)+'&text='+encodeURIComponent(t),'sharer',windowFeatures);
+            return false;
+      }
+
+      const copy_link = (url) => {
+            if(url) { 
+                  url.select();
+                  document.execCommand("copy");
+            }
       }
 
       return (
@@ -84,17 +102,17 @@ const ImageDisplay = ({ setSelectedImg }) => {
                                           <div className = "share-wrap">
                                                 <div style = {{padding:' 0px 10px'}}>
                                                       <FacebookIcon style={{ fontSize: 40, cursor:'pointer', color :'#3b5998' }}
-                                                                    onClick={() => facebook_click(doc.url, doc.name, 500, 400)}
+                                                                    onClick={() => facebook_click(doc.url, doc.name, 400, 400)}
                                                       />
                                                 </div>
                                                 <div style = {{padding:' 0px 10px'}}>
                                                       <TwitterIcon style={{ fontSize: 40, cursor:'pointer', color: '#1da1f2'}}
-                                                                   onClick={() => alert("TWEET...")} 
+                                                                   onClick={() => twitter_click(doc.url, doc.name, 400, 400)} 
                                                       />
                                                 </div>
                                                 <div style = {{padding:' 0px 10px'}}>
                                                       <LinkIcon style={{ fontSize: 40, cursor:'pointer' }}
-                                                                onClick={() => alert("SHARE LINK...")}
+                                                                onClick={() => copy_link(doc.url)}
                                                       />
                                                 </div>
                                           </div>
