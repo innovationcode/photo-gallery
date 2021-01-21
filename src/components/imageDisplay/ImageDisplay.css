@@ -54,12 +54,20 @@
   cursor: pointer;
   border: "2px solid gray";
 }
+.p-likes {
+  font-size: 22px; padding :10px; padding-top:5px;
+}
 
 .likes-share {
   display: flex;
   justify-content: space-between;
+  padding-top: 52.5%;
+  padding-left:2%;
 }
-
+.test {
+  display:flex;
+  justify-content: flex-end;
+}
 .test .social-share-wrap {
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24);
   visibility: hidden;
@@ -87,22 +95,51 @@
   background-color: aqua;
 }
 
+.likes-icon {
+  font-size: 160px;
+  /* padding: 7px 16px; */
+  /* color: lightcoral; */
+  cursor:pointer;
+}
+
+.likes-share-first-div{
+  display:flex;
+}
+
 @media only screen and (max-width: 600px) {
-  .likes {
-    margin-top: 50.5%;
+  .likes-share {
+    margin-top: 40%;
   }
-  .likes .likes-icon {
-    font-size: 30px;
+
+  .MuiSvgIcon-root {
+    
+    font-size: 1.2rem;
   }
-  .likes p {
-    font-size: 15px;
+
+  .p-likes {
+    font-size: 10px;
+    color:purple;
   }
 
   .img-wrap {
     padding: 30% 0;
-    height: 90px;
+    height: 15vh;    
+    width: 27vw;
   }
   .img-wrap img {
     min-height: 75%;
+  }
+
+  .img-display {
+    grid-gap: 16px;
+  }
+  .delete-image {
+    font-size: 12px;
+    padding: 0.8px 3px;
+  }
+  .p-likes {
+    padding-top:0px;
+    font-size: 16px; 
+    padding :5px;
   }
 }

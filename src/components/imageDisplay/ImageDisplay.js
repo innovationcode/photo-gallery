@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import useFirestore from '../../hooks/useFirestore.js';
 import { motion } from 'framer-motion';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
@@ -6,13 +6,14 @@ import ShareIcon from '@material-ui/icons/Share';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import LinkIcon from '@material-ui/icons/Link';
-
+      
 import './ImageDisplay.css';
 import { projectFirestore } from '../../firebase/firebase.js';
 
 
 const ImageDisplay = ({ setSelectedImg }) => {
       const { docs } = useFirestore('images');
+      const [copy, setCopy] = useState(false);
       // console.log("DOCS... : ", docs)
 
       const handleLikes = async (likes,  id ) => {
@@ -59,7 +60,8 @@ const ImageDisplay = ({ setSelectedImg }) => {
 
       const copy_link = (url) => {
             if(navigator.clipboard.writeText(url)) {
-                  alert(`${url}\n\nAbove image link copied to clipboard`)
+                  //setCopy(true)
+                  alert('Image url copied to clipboard')
             }
       }
 
@@ -83,19 +85,20 @@ const ImageDisplay = ({ setSelectedImg }) => {
                               onClick={() => setSelectedImg({url: doc.url, name: doc.name})}
 
                         />
-                        <div className = "likes-share" style ={{paddingTop :'52.5%', paddingLeft:'2%'}}>  
-                              <div style = {{display:'flex', justifyContent:'flex-start'}}>
-                                    <FavoriteBorderIcon className = "likes-icon"
-                                                      style={{ fontSize: 40, cursor:'pointer' }}
-                                                      onClick={() => {handleLikes(doc.likes, doc.id)}}
-                                                      
+                        <div className = "likes-share" style = {{border: '1.5px solid purple'}}>  
+                              <div className ="likes-share-first-div">
+                                    <FavoriteBorderIcon 
+                                          className = "likes-icon"
+                                          // style={{ fontSize: 40, cursor:'pointer' }}
+                                          tooltip="Add New Widget"
+                                          onClick={() => {handleLikes(doc.likes, doc.id)}}     
                                     />
-                                    <p style = {{fontSize: '22px', padding :'10px', paddingTop:'5px'}}>{doc.likes}</p>
+                                    <p className = "p-likes">{doc.likes}</p>
                               </div>
 
                               <div className = "test">
                                     <ShareIcon className = "likes-icon"
-                                               style={{ fontSize: 30, padding :'7px 16px', color:'purple' }}
+                                          style={{paddingRight :'7px'}}
                                     />
                                     <div className = "social-share-wrap" >
                                           <div className = "share-wrap">
@@ -116,6 +119,7 @@ const ImageDisplay = ({ setSelectedImg }) => {
                                                 </div>
                                           </div>
                                     </div>
+                                    
                               </div>
 
                         </div>
@@ -123,7 +127,7 @@ const ImageDisplay = ({ setSelectedImg }) => {
                         </motion.div>
                       </>
                   ))}
-                  
+                  {/* {copy ? <div><h1> Image Link copied to clipboard</h1> {setCopy(false)} </div> : null} */}
             </div>
       )
 }
