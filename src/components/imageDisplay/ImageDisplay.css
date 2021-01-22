@@ -113,13 +113,21 @@
 }
 
 .share-social-icons {
-  font-size: 40px !important;
+  font-size: 2rem !important;
   cursor: pointer;
+}
+
+.loading {
+  padding-top: 16%;
+  padding-left: 40vw;
+  padding-bottom: 75%;
+  color: gray;
 }
 
 @media only screen and (max-width: 600px) {
   .likes-share {
-    margin-top: 47.3%;
+    /* margin-top: 47.3%; */
+    margin-top: 8.16vh;
   }
 
   .MuiSvgIcon-root {
@@ -171,5 +179,11 @@
   .share-social-icons {
     font-size: 22px !important;
     cursor: pointer;
+  }
+  .loading {
+    padding-top: 12vh;
+    padding-left: 26vw;
+    padding-bottom: 75%;
+    color: gray;
   }
 }

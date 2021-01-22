@@ -12,7 +12,6 @@ import { projectFirestore } from '../../firebase/firebase.js';
 
 const ImageDisplay = ({ setSelectedImg }) => {
       const { docs } = useFirestore('images');
-      const [copy, setCopy] = useState(false);
       // console.log("DOCS... : ", docs)
 
       const handleLikes = async (likes,  id ) => {
@@ -66,7 +65,8 @@ const ImageDisplay = ({ setSelectedImg }) => {
 
       return (
             <div className = "img-display">
-                  { docs && docs.map(doc => (
+                  {docs.length === 0? (<h2 className = "loading">Loading....</h2> ) : null}
+                  {docs && docs.map(doc => (
                         <>
                         <motion.div className="img-wrap" key={doc.id} 
                               layout
@@ -126,7 +126,7 @@ const ImageDisplay = ({ setSelectedImg }) => {
                         </motion.div>
                       </>
                   ))}
-                  {/* {copy ? <div><h1> Image Link copied to clipboard</h1> {setCopy(false)} </div> : null} */}
+
             </div>
       )
 }
