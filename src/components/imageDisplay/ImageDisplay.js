@@ -10,7 +10,6 @@ import LinkIcon from '@material-ui/icons/Link';
 import './ImageDisplay.css';
 import { projectFirestore } from '../../firebase/firebase.js';
 
-
 const ImageDisplay = ({ setSelectedImg }) => {
       const { docs } = useFirestore('images');
       const [copy, setCopy] = useState(false);
@@ -85,7 +84,7 @@ const ImageDisplay = ({ setSelectedImg }) => {
                               onClick={() => setSelectedImg({url: doc.url, name: doc.name})}
 
                         />
-                        <div className = "likes-share" style = {{border: '1.5px solid purple'}}>  
+                        <div className = "likes-share">  
                               <div className ="likes-share-first-div">
                                     <FavoriteBorderIcon 
                                           className = "likes-icon"
@@ -102,18 +101,18 @@ const ImageDisplay = ({ setSelectedImg }) => {
                                     />
                                     <div className = "social-share-wrap" >
                                           <div className = "share-wrap">
-                                                <div style = {{padding:' 0px 10px'}}>
-                                                      <FacebookIcon style={{ fontSize: 40, cursor:'pointer', color :'#3b5998' }}
+                                                <div className = "share-wrap-inside-div">
+                                                      <FacebookIcon className = "share-social-icons" style={{color :'#3b5998' }}
                                                                     onClick={() => facebook_click(doc.url, doc.name, 400, 400)}
                                                       />
                                                 </div>
-                                                <div style = {{padding:' 0px 10px'}}>
-                                                      <TwitterIcon style={{ fontSize: 40, cursor:'pointer', color: '#1da1f2'}}
+                                                <div className = "share-wrap-inside-div">
+                                                      <TwitterIcon className = "share-social-icons" style={{color: '#1da1f2'}}
                                                                    onClick={() => twitter_click(doc.url, doc.name, 400, 400)} 
                                                       />
                                                 </div>
-                                                <div style = {{padding:' 0px 10px'}}>
-                                                      <LinkIcon style={{ fontSize: 40, cursor:'pointer' }}
+                                                <div className = "share-wrap-inside-div">
+                                                      <LinkIcon className = "share-social-icons"
                                                                 onClick={() => copy_link(doc.url)}
                                                       />
                                                 </div>

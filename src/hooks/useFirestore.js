@@ -4,6 +4,8 @@ import { projectFirestore } from '../firebase/firebase.js';
 const useFirestore = (collection) => {
   const [docs, setDocs] = useState([]);
 
+  console.log("Project Store  ", projectFirestore)
+
   useEffect(() => {
     const unsub = projectFirestore.collection(collection)
       .orderBy('createdAt', 'desc')

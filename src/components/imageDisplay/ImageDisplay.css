@@ -55,24 +55,27 @@
   border: "2px solid gray";
 }
 .p-likes {
-  font-size: 22px; padding :10px; padding-top:5px;
+  font-size: 22px;
+  padding: 10px;
+  padding-top: 5px;
 }
 
 .likes-share {
   display: flex;
   justify-content: space-between;
   padding-top: 52.5%;
-  padding-left:2%;
+  padding-left: 2%;
 }
 .test {
-  display:flex;
+  display: flex;
   justify-content: flex-end;
 }
+
 .test .social-share-wrap {
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24);
   visibility: hidden;
   position: absolute;
-  right: 6%;
+  right: 8%;
   bottom: 1.22%;
   background-color: rgb(172, 168, 168);
   padding: 7px 5px 2px 6px; /*top right bottom left*/
@@ -96,38 +99,51 @@
 }
 
 .likes-icon {
-  font-size: 160px;
+  font-size: 2.1rem !important;
   /* padding: 7px 16px; */
-  /* color: lightcoral; */
-  cursor:pointer;
+  cursor: pointer;
 }
 
-.likes-share-first-div{
-  display:flex;
+.likes-share-first-div {
+  display: flex;
+}
+
+.share-wrap-inside-div {
+  padding: 0px 10px;
+}
+
+.share-social-icons {
+  font-size: 40px !important;
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 600px) {
   .likes-share {
-    margin-top: 40%;
+    margin-top: 47.3%;
   }
 
   .MuiSvgIcon-root {
-    
     font-size: 1.2rem;
   }
 
+  .likes-icon {
+    /* color: crimson; */
+    font-size: small !important;
+  }
+
   .p-likes {
-    font-size: 10px;
-    color:purple;
+    font-size: 10px !important;
+    padding: 4px;
+    margin-top: -4.5px;
   }
 
   .img-wrap {
     padding: 30% 0;
-    height: 15vh;    
+    height: 14vh;
     width: 27vw;
   }
   .img-wrap img {
-    min-height: 75%;
+    min-height: 81%;
   }
 
   .img-display {
@@ -137,9 +153,23 @@
     font-size: 12px;
     padding: 0.8px 3px;
   }
-  .p-likes {
-    padding-top:0px;
-    font-size: 16px; 
-    padding :5px;
+
+  .share-wrap {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .test .social-share-wrap {
+    right: 22.5%;
+    padding: 3px 2px 0.5px 3px; /*top right bottom left*/
+  }
+
+  .share-wrap-inside-div {
+    padding: 0px 2px;
+  }
+
+  .share-social-icons {
+    font-size: 22px !important;
+    cursor: pointer;
   }
 }
