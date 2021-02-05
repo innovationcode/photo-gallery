@@ -123,6 +123,12 @@
   padding-bottom: 75%;
   color: gray;
 }
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation: landscape) {
+  /* For landscape layouts only */
+  .likes-share {
+    padding-top: 62.5%;
+  }
+}
 
 @media only screen and (max-width: 600px) {
   .likes-share {

@@ -5,8 +5,8 @@ import './Title.css';
 function Title() {
       return (
             <div className = "title">
-                 <h1>Photo Gallery</h1>
-                 <h2>My Photo Gallery</h2> 
+                 <h1>Image Gallery</h1>
+                 <h2>Image Gallery</h2> 
                  
             </div>
       )
